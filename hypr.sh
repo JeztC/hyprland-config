@@ -44,8 +44,8 @@ function Print() {
     if [ $DEBUG -eq 0 ]; then
         return 0
     fi
-    
-    1>&2 printf "$@" 
+
+    1>&2 printf "$@"
 }
 
 function send_notification() {
@@ -119,7 +119,7 @@ function save_geometry() {
             "$COMMAND" "$output"
         }
     else
-        wl-copy < <(grim -g "${cropped_geometry}" -)
+        wl-copy --type image/png < <(grim -g "${cropped_geometry}" -)
     fi
 
     send_notification $output
